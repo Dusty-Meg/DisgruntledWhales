@@ -4,6 +4,7 @@ using System.Collections;
 public class test : MonoBehaviour {
 
 	bool mouse = false;
+    bool used = false;
 	float x, y;
 	
 	void OnMouseDown()
@@ -25,21 +26,28 @@ public class test : MonoBehaviour {
 
 			testr.enabled = false;
 		}
+
+        used = true;
 	}
 
 	void Update()
 	{
-		if (mouse == true)
-		{
-			Debug.Log(Input.mousePosition);
 
-			Vector2 move2 = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        //if (used == false)
+        //{
+            if (mouse == true)
+            {
+                Debug.Log(Input.mousePosition);
 
-			transform.position = (move2);
+                Vector2 move2 = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 
-			Quaternion rot = new Quaternion (0, 0, 0, 0);
-			transform.rotation = rot;
-		}
+                transform.position = (move2);
+
+                //Quaternion rot = new Quaternion(0, 0, 0, 0);
+                //transform.rotation = rot;
+            }
+            
+        //}
 	}
 
 }
